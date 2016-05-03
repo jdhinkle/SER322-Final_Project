@@ -2,12 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: root
- * Date: 4/26/16
- * Time: 9:51 PM
+ * Date: 5/2/16
+ * Time: 3:05 PM
  */
 
 include("database.php");
 include("html_template.php");
 Database::init();
 
-echo buildHTMLPage('Use the links above to navigate.');
+$table  = Database::getComicCompanyHTML($_GET["id"]);
+
+echo buildHTMLPage($table);
