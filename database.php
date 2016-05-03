@@ -8,17 +8,20 @@
  */
 class Database
 {
-
+    static $dbhost = 'host';
+    static $dbname = 'databasename';
+    static $dbuser = 'user';
+    static $dbpass = 'password';
     static $database;
 
     static function init()
     {
         try {
             self::$database = new PDO(
-                "mysql:host=localhost" .
-                ";dbname=Superhero",
-                'root',
-                'jonnyd5'
+                "mysql:host=" . self::$dbhost .
+                ";dbname=" . self::$dbname,
+                self::$dbuser,
+                self::$dbpass
             );
         } catch (Exception $e) {
             echo $e;
